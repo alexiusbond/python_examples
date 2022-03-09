@@ -70,10 +70,13 @@ honda_car = Car("Honda CRV", "silver", 2020, 0)
 print(f'{honda_car.model} {honda_car.color} {honda_car.year} {honda_car.penalties} {honda_car.number_of_wheels}')
 honda_car.drive("Osh")
 honda_car.change_color("blue")
-print(f'{honda_car.model} {honda_car.color} {honda_car.year} {honda_car.penalties} {honda_car.number_of_wheels}')
+print(f'{honda_car.model} {honda_car.color} {honda_car.year} {honda_car.penalties} '
+      f'{honda_car.number_of_wheels}')
 
 man_truck = Truck("Man 212", "white", 2020, 900, 20000)
-print(f'{man_truck.model} {man_truck.color} {man_truck.year} {man_truck.penalties} {man_truck.load_capacity} {man_truck.number_of_wheels}')
+print(
+    f'{man_truck.model} {man_truck.color} {man_truck.year} '
+    f'{man_truck.penalties} {man_truck.load_capacity} {man_truck.number_of_wheels}')
 man_truck.drive("Los Angeles")
 man_truck.load_cargo(500000)
 man_truck.load_cargo(3000)

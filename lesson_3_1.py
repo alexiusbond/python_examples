@@ -72,10 +72,10 @@ class FuelCar(Car):
         print("AI 98")
 
     @classmethod
-    def put_fuel(cls, amount):
+    def put_fuel(cls, car, amount):
         cls.__total_fuel -= amount
         print(f'Total fuel remain: {cls.__total_fuel}')
-        return amount
+        car.fuel_amount += amount
 
     def __init__(self, model, year, fuel_amount):
         Car.__init__(self, model, year)
@@ -113,12 +113,12 @@ prius = HybridCar("Toyota Prius", 2011, 80000, 35)
 print(prius)
 prius.drive()
 print(HybridCar.mro())
-prius.fuel_amount = prius.fuel_amount + FuelCar.put_fuel(9)
+FuelCar.put_fuel(prius, 9)
 print(prius)
 
 honda = FuelCar("Honda Fit", 2020, 45)
 print(honda)
-honda.fuel_amount += FuelCar.put_fuel(10)
+FuelCar.put_fuel(honda, 10)
 print(honda)
 honda.play_music('Hello song')
 
