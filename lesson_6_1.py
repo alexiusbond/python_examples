@@ -14,12 +14,13 @@ print(result)
 result = re.findall(r'AV', text)
 print(result)
 
-result = re.split(r' ', text, 1)
+result = re.split(r' ', text, 2)
 print(result)
 
 result = re.sub(r' ', ' - ', text)
 print(result)
 
+# result = re.findall(r'AV', text)
 pattern = re.compile('AV')
 result = pattern.findall(text)
 print(result)
