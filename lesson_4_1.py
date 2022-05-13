@@ -1,4 +1,12 @@
 from random import randint
+from enum import Enum
+
+
+class SuperAbility(Enum):
+    CRITICAL_DAMAGE = 1
+    HEAL = 2
+    BOOST = 3
+    SAVE_DAMAGE_AND_REVERT = 4
 
 
 class GameEntity:
@@ -62,7 +70,7 @@ class Hero(GameEntity):
 
 class Warrior(Hero):
     def __init__(self, name, health, damage):
-        super().__init__(name, health, damage, 'CRITICAL_DAMAGE')
+        super().__init__(name, health, damage, SuperAbility.CRITICAL_DAMAGE)
 
     def apply_super_power(self, boss, heroes):
         coeff = randint(2, 5)
@@ -72,7 +80,7 @@ class Warrior(Hero):
 
 class Medic(Hero):
     def __init__(self, name, health, damage, heal_points):
-        super().__init__(name, health, damage, 'HEAL')
+        super().__init__(name, health, damage, SuperAbility.HEAL)
         self.__heal_points = heal_points
 
     def apply_super_power(self, boss, heroes):
@@ -84,7 +92,7 @@ class Medic(Hero):
 
 class Magic(Hero):
     def __init__(self, name, health, damage):
-        super().__init__(name, health, damage, 'BOOST')
+        super().__init__(name, health, damage, SuperAbility.BOOST)
 
     def apply_super_power(self, boss, heroes):
         print('Magic boosted')
@@ -96,7 +104,7 @@ class Magic(Hero):
 
 class Berserk(Hero):
     def __init__(self, name, health, damage):
-        super().__init__(name, health, damage, 'SAVE_DAMAGE_AND_REVERT')
+        super().__init__(name, health, damage, SuperAbility.SAVE_DAMAGE_AND_REVERT)
 
     def apply_super_power(self, boss, heroes):
         pass
@@ -124,7 +132,10 @@ def print_statistics(boss, heroes):
     print(f'{round_number} ROUND ----------')
     print(boss)
     for h in heroes:
-        print(h)
+        if (h.super_ability_type == SuperAbility.BOOST):
+            print(h, 'I am very powerful magician!')
+        else:
+            print(h)
 
 
 def boss_hits(boss, heroes):
