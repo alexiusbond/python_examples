@@ -21,3 +21,7 @@ class Person:
 
     def __str__(self):
         return f'Name: {self.name} Age: {self.age}'
+
+
+if __name__ == '__main__':
+    print(Person("Ali", 11))
