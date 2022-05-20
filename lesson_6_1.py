@@ -27,7 +27,13 @@ print(result)
 
 with open("test_regs.txt", "r", encoding="utf-8") as file:
     content = file.read()
-    print(content)
+    beeline_numbers_list = re.findall(r'\+996 77[0-9] [0-9 ]{8}', content)
+    print(beeline_numbers_list)
+    mega_numbers_list = re.findall(r'\+996 55[0-9] [0-9 ]{8}', content)
+    print(mega_numbers_list)
+    p = re.compile(r'\+996 (50|70)[0-9] [0-9 ]{8}')
+    o_numbers_list = re.findall(r'\+996 [57]0[0-9] [0-9 ]{8}', content)
+    print(o_numbers_list)
 
     print(re.findall(r'fruits\[\d\]', content))
     print(re.findall(r'log\d*\.txt', content))
