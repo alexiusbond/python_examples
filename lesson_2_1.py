@@ -29,12 +29,12 @@ class Address:
         self.__house_number = house_number
 
 
-class Animal():
+class Animal:
     def __init__(self, name, age, address):
-        self.__created()
         self.__name = name
         self.__age = age
         self.address = address
+        self.__created()
 
     @property
     def name(self):
@@ -57,7 +57,7 @@ class Animal():
 
     def __created(self):
         print("_____________")
-        print("New animal was born")
+        print(f"{self.name} was born")
 
     def info(self):
         return f'Name: {self.name} Age: {self.age} Address: {self.address.city}, ' \
